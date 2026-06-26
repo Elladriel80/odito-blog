@@ -3,79 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog Odito | Conformité et protection sociale, bientôt en ligne</title>
-<meta name="description" content="Le blog d'Odito : analyses et guides pratiques sur la conformité de la protection sociale, les conventions collectives et le devoir de conseil. Bientôt en ligne.">
+<title>Blog Odito | Conformité de la protection sociale et conventions collectives</title>
+<meta name="description" content="Analyses et guides pratiques sur la conformité de la protection sociale, les conventions collectives, la DUE et le contrôle URSSAF, pour experts-comptables et courtiers.">
 <link rel="icon" href="https://odito.fr/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0A0A0A">
 <link rel="canonical" href="https://blog.odito.fr/">
-<meta name="robots" content="noindex, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Odito">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://blog.odito.fr/">
-<meta property="og:title" content="Blog Odito, bientôt en ligne">
-<meta property="og:description" content="Analyses et guides pratiques sur la conformité de la protection sociale et les conventions collectives.">
+<meta property="og:title" content="Blog Odito : conformité de la protection sociale">
+<meta property="og:description" content="Guides pratiques sur la conformité de la protection sociale et les conventions collectives.">
 <meta property="og:image" content="https://odito.fr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://odito.fr/og-image.png">
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--white:#FFFFFF; --paper:#F4F1EA; --black:#0A0A0A; --text:#0A0A0A; --text-soft:#4A4A4A; --text-muted:#767676; --accent:#FF5A1F; --border:#E8E5DE;}
+  :root{--white:#FFFFFF; --paper:#F4F1EA; --black:#0A0A0A; --text:#0A0A0A; --text-soft:#3A3A3A; --text-muted:#767676; --accent:#FF5A1F; --accent-dark:#D94717; --border:#E8E5DE;}
   *{box-sizing:border-box; margin:0; padding:0;}
   body{font-family:'Inter',system-ui,sans-serif; color:var(--text); background:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column;}
-  h1,h2{font-family:'Fraunces',Georgia,serif; letter-spacing:-0.025em; font-variation-settings:"opsz" 144,"SOFT" 30;}
-  .container{max-width:760px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; letter-spacing:-0.025em; font-variation-settings:"opsz" 144,"SOFT" 30; line-height:1.15;}
   a{color:var(--text); text-decoration:none; transition:color .2s;}
-  header{border-bottom:1px solid var(--border); padding:26px 0;}
-  .logo{font-family:'Fraunces',serif; font-weight:700; font-size:28px; letter-spacing:-0.03em; display:inline-flex; align-items:baseline; gap:14px;}
+  .container{max-width:860px; margin:0 auto; padding:0 28px;}
+  header.site{border-bottom:1px solid var(--border); padding:24px 0;}
+  .logo{font-family:'Fraunces',serif; font-weight:700; font-size:26px; letter-spacing:-0.03em; display:inline-flex; align-items:baseline; gap:14px;}
   .logo .dot{color:var(--accent);}
   .logo small{font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:400; color:var(--text-muted); letter-spacing:0.2em; text-transform:uppercase; padding-left:14px; border-left:1px solid var(--border);}
-  main{flex:1; display:flex; align-items:center; padding:80px 0;}
-  .chapter{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-muted); letter-spacing:0.14em; text-transform:uppercase; display:inline-flex; align-items:center; gap:14px; margin-bottom:26px;}
+  main{flex:1; padding:64px 0 40px;}
+  .intro{margin-bottom:48px;}
+  .chapter{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-muted); letter-spacing:0.14em; text-transform:uppercase; display:inline-flex; align-items:center; gap:14px; margin-bottom:20px;}
   .chapter::before{content:""; display:inline-block; width:32px; height:1px; background:var(--accent);}
-  h1{font-size:clamp(34px,5vw,56px); line-height:1.05; font-weight:600; max-width:16ch;}
-  .lead{font-size:19px; line-height:1.7; color:var(--text-soft); max-width:56ch; margin-top:26px;}
-  .topics{margin-top:34px; list-style:none; display:flex; flex-wrap:wrap; gap:10px;}
-  .topics li{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-soft); border:1px solid var(--border); border-radius:999px; padding:8px 14px;}
-  .cta{margin-top:40px; display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:999px; font-weight:500; font-size:14px; border:1px solid transparent; transition:all .3s;}
-  .btn-primary{background:var(--text); color:var(--white);}
-  .btn-primary:hover{background:var(--accent);}
-  .btn-secondary{background:transparent; color:var(--text); border-color:var(--border);}
-  .btn-secondary:hover{background:var(--text); color:var(--white);}
-  footer{border-top:1px solid var(--border); padding:24px 0; color:var(--text-muted); font-size:13px; font-family:'IBM Plex Mono',monospace;}
-  footer .container{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-  footer a{color:var(--text-muted);}
-  footer a:hover{color:var(--accent);}
+  .intro h1{font-size:clamp(32px,4.6vw,52px); font-weight:600; max-width:18ch;}
+  .intro p{font-size:18px; color:var(--text-soft); line-height:1.7; max-width:60ch; margin-top:20px;}
+  .posts{display:flex; flex-direction:column; gap:4px;}
+  .post{display:block; border-top:1px solid var(--border); padding:30px 0; transition:padding-left .25s;}
+  .post:hover{padding-left:8px;}
+  .post:last-child{border-bottom:1px solid var(--border);}
+  .post .pmeta{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); display:flex; gap:16px; margin-bottom:12px;}
+  .post .pmeta .cat{color:var(--accent);}
+  .post h2{font-size:25px; font-weight:600; margin-bottom:10px;}
+  .post:hover h2{color:var(--accent-dark);}
+  .post p{color:var(--text-soft); font-size:16px; line-height:1.65; max-width:64ch;}
+  .post .more{display:inline-block; margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--accent-dark);}
+  footer.site{border-top:1px solid var(--border); padding:24px 0; margin-top:48px; color:var(--text-muted); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+  footer.site .container{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  footer.site a{color:var(--text-muted);}
+  footer.site a:hover{color:var(--accent);}
 </style>
 </head>
 <body>
-<header>
+<header class="site">
   <div class="container">
     <a href="https://odito.fr/" class="logo">Odito<span class="dot">.</span><small>Blog</small></a>
   </div>
 </header>
 <main>
   <div class="container">
-    <span class="chapter">Publications · Bientôt en ligne</span>
-    <h1>Le blog Odito arrive.</h1>
-    <p class="lead">Nous préparons des analyses et des guides pratiques sur la conformité de la protection sociale, les conventions collectives et le devoir de conseil, pour les experts-comptables et les courtiers. Les premiers articles seront publiés ici très prochainement.</p>
-    <ul class="topics">
-      <li>Conventions collectives</li>
-      <li>Audit de conformité</li>
-      <li>DUE</li>
-      <li>Prévoyance et santé</li>
-      <li>Contrôle URSSAF</li>
-      <li>Konforma</li>
-    </ul>
-    <div class="cta">
-      <a href="https://odito.fr/" class="btn btn-primary">Retour sur odito.fr</a>
-      <a href="https://outlook.office365.com/owa/calendar/PrsentationOdito1@vasa.fr/bookings/" target="_blank" rel="noopener" class="btn btn-secondary">Prendre rendez-vous</a>
+    <div class="intro">
+      <span class="chapter">Publications</span>
+      <h1>Conformité de la protection sociale, en pratique.</h1>
+      <p>Analyses et guides pour les experts-comptables et les courtiers : conventions collectives, audit de conformité, DUE et contrôle URSSAF. Du concret, sans jargon inutile.</p>
+    </div>
+
+    <div class="posts">
+      <a class="post" href="https://blog.odito.fr/audit-conformite-ccn-sante-prevoyance/">
+        <div class="pmeta"><span class="cat">Conformité</span><span>26 juin 2026</span><span>8 min</span></div>
+        <h2>Audit de conformité CCN santé et prévoyance : le guide</h2>
+        <p>Ce que la convention collective impose, les écarts les plus fréquents et comment se déroule un audit de conformité d'un régime de protection sociale.</p>
+        <span class="more">Lire l'article →</span>
+      </a>
+
+      <a class="post" href="https://blog.odito.fr/controle-urssaf-protection-sociale/">
+        <div class="pmeta"><span class="cat">Conformité</span><span>26 juin 2026</span><span>7 min</span></div>
+        <h2>Contrôle URSSAF de la protection sociale : comment se préparer</h2>
+        <p>Les trois conditions de l'exonération, les anomalies les plus redressées et une check-list pour aborder un contrôle URSSAF sereinement.</p>
+        <span class="more">Lire l'article →</span>
+      </a>
+
+      <a class="post" href="https://blog.odito.fr/due-decision-unilaterale-employeur/">
+        <div class="pmeta"><span class="cat">Conformité</span><span>26 juin 2026</span><span>6 min</span></div>
+        <h2>La DUE : sécuriser le caractère collectif et obligatoire</h2>
+        <p>Ce que doit contenir une Décision Unilatérale de l'Employeur, quand la mettre à jour et pourquoi elle conditionne l'exonération URSSAF.</p>
+        <span class="more">Lire l'article →</span>
+      </a>
     </div>
   </div>
 </main>
-<footer>
+<footer class="site">
   <div class="container">
-    <span>© 2026 Actisolutions SAS</span>
+    <span>© 2026 Actisolutions SAS · <a href="https://odito.fr/">odito.fr</a></span>
     <span><a href="https://odito.fr/legal/">Mentions légales</a> · <a href="https://odito.fr/policy/">Politique de données</a></span>
   </div>
 </footer>
