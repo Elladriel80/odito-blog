@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyser une DSN : contrôler la mutuelle et la prévoyance</title>
+<meta name="description" content="Ce que la DSN révèle de la mutuelle et de la prévoyance d&#x27;un client : les blocs à lire, les contrôles, le 1,50 % des cadres, et ce qu&#x27;elle ne dit pas.">
+<link rel="icon" href="https://odito.fr/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://blog.odito.fr/controle-dsn-mutuelle-prevoyance/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Odito">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://blog.odito.fr/controle-dsn-mutuelle-prevoyance/">
+<meta property="og:title" content="Analyser une DSN : contrôler la mutuelle et la prévoyance">
+<meta property="og:description" content="Ce que la DSN révèle de la mutuelle et de la prévoyance d&#x27;un client : les blocs à lire, les contrôles, le 1,50 % des cadres, et ce qu&#x27;elle ne dit pas.">
+<meta property="og:image" content="https://odito.fr/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Analyser une DSN : contrôler la mutuelle et la prévoyance">
+<meta name="twitter:description" content="Ce que la DSN révèle de la mutuelle et de la prévoyance d&#x27;un client : les blocs à lire, les contrôles, le 1,50 % des cadres, et ce qu&#x27;elle ne dit pas.">
+<meta name="twitter:image" content="https://odito.fr/og-image.png">
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--white:#FFFFFF; --paper:#F4F1EA; --black:#0A0A0A; --text:#0A0A0A; --text-soft:#3A3A3A; --text-muted:#767676; --accent:#FF5A1F; --accent-dark:#D94717; --accent-light:#FFE9DF; --border:#E8E5DE;}
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif; color:var(--text); background:var(--white); line-height:1.7; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; letter-spacing:-0.02em; font-variation-settings:"opsz" 144,"SOFT" 30; line-height:1.15;}
+  a{color:var(--accent-dark); text-decoration:none; transition:color .2s;}
+  a:hover{color:var(--accent);}
+  .container{max-width:760px; margin:0 auto; padding:0 28px;}
+  header.site{border-bottom:1px solid var(--border); padding:24px 0;}
+  .logo{font-family:'Fraunces',serif; font-weight:700; font-size:26px; letter-spacing:-0.03em; display:inline-flex; align-items:baseline; gap:14px; color:var(--text);}
+  .logo .dot{color:var(--accent);}
+  .logo small{font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:400; color:var(--text-muted); letter-spacing:0.2em; text-transform:uppercase; padding-left:14px; border-left:1px solid var(--border);}
+  .crumb{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); letter-spacing:0.08em; margin:36px 0 16px;}
+  .crumb a{color:var(--text-muted);}
+  article h1{font-size:clamp(30px,4.4vw,46px); font-weight:600; margin-bottom:18px;}
+  .meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:34px; display:flex; flex-wrap:wrap; gap:8px 18px;}
+  .meta .cat{color:var(--accent);}
+  article p{margin:0 0 20px; font-size:17px; color:var(--text-soft);}
+  article h2{font-size:26px; font-weight:600; margin:42px 0 16px;}
+  article h3{font-size:20px; font-weight:600; margin:30px 0 12px;}
+  article ul{margin:0 0 22px; padding:0; list-style:none;}
+  article li{position:relative; padding-left:26px; margin-bottom:10px; color:var(--text-soft); font-size:17px;}
+  article li::before{content:"✦"; position:absolute; left:0; color:var(--accent); font-size:13px; top:4px;}
+  .lead{font-size:20px; color:var(--text); line-height:1.6;}
+  .cta-box{background:var(--paper); border:1px solid var(--border); border-radius:16px; padding:30px; margin:40px 0;}
+  .cta-box h3{margin-top:0; font-size:22px;}
+  .cta-box p{font-size:16px;}
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; font-weight:500; font-size:14px; border:1px solid transparent; transition:all .3s; margin-top:8px;}
+  .btn-accent{background:var(--accent); color:var(--white);}
+  .btn-accent:hover{background:var(--accent-dark); color:var(--white);}
+  .further{border-top:1px solid var(--border); margin-top:48px; padding-top:28px;}
+  .further h3{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted); font-weight:500; margin-bottom:14px;}
+  footer.site{border-top:1px solid var(--border); padding:24px 0; margin-top:56px; color:var(--text-muted); font-size:13px; font-family:'IBM Plex Mono',monospace;}
+  footer.site .container{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  footer.site a{color:var(--text-muted);}
+  table.chiffres{width:100%; border-collapse:collapse; margin:8px 0 24px; font-size:16px;}
+  table.chiffres th,table.chiffres td{border-bottom:1px solid var(--border); padding:11px 4px; text-align:right; font-variant-numeric:tabular-nums; color:var(--text-soft);}
+  table.chiffres th:first-child,table.chiffres td:first-child{text-align:left;}
+  table.chiffres thead th{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--text-muted); border-bottom:1px solid var(--black);}
+  .repere{display:flex; gap:22px; align-items:center; background:var(--accent-light); border-left:4px solid var(--accent); padding:20px 24px; margin:28px 0;}
+  .repere .n{font-family:'Fraunces',serif; font-size:40px; font-weight:600; line-height:1; letter-spacing:-.04em; color:var(--accent-dark); white-space:nowrap;}
+  .repere .t{font-size:16px; color:var(--text); line-height:1.5;}
+  .ref{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--text-muted); letter-spacing:.02em; display:block; margin:-10px 0 22px;}
+  .faq h3{font-size:18px; margin:26px 0 8px;}
+  .note{font-size:14px; color:var(--text-muted); font-style:italic; border-left:2px solid var(--border); padding-left:16px; margin:24px 0;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Analyser une DSN : contrôler la mutuelle et la prévoyance",
+  "description": "Ce que la DSN révèle de la mutuelle et de la prévoyance d'un client : les blocs à lire, les contrôles, le 1,50 % des cadres, et ce qu'elle ne dit pas.",
+  "datePublished": "2026-11-03",
+  "dateModified": "2026-11-03",
+  "inLanguage": "fr-FR",
+  "image": "https://odito.fr/og-image.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Odito"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Odito",
+    "legalName": "ACTISOLUTIONS SAS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://odito.fr/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://blog.odito.fr/controle-dsn-mutuelle-prevoyance/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Peut-on contrôler la mutuelle d'entreprise à partir de la DSN ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En partie. La DSN montre les contrats déclarés, les salariés affiliés, les cotisations et, souvent, la part patronale. Elle permet de repérer des salariés sans mutuelle, des taux différents dans une même catégorie ou une part employeur insuffisante. Elle ne montre ni la DUE, ni les garanties, ni les justificatifs de dispense."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment vérifier le 1,50 % des cadres dans la DSN ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En rapportant la cotisation prévoyance du cadre à son assiette sur la tranche 1, déclarées dans les blocs 78, 79 et 81. Si le total est sous 1,50 %, la part patronale santé peut compléter, à condition que plus de 0,75 % aille au décès : la ventilation du contrat le dit, pas la DSN."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où trouver la part patronale santé et prévoyance dans la DSN ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans le bloc S21.G00.54, Autre élément de revenu brut, quand le logiciel de paie la déclare. Si elle est absente alors que des cotisations sont déclarées, le paramétrage de la paie est à vérifier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "DSN-Val suffit-il à contrôler la protection sociale ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. DSN-Val contrôle que le fichier respecte la norme avant l'envoi. Il ne vérifie pas que le régime respecte la convention collective, l'obligation des cadres ou le financement minimum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le fichier DSN est-il envoyé à Odito quand on utilise la lecture DSN ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le fichier est lu dans votre navigateur et n'est envoyé à aucun serveur. Seuls le numéro de convention collective, pour lire les minimums de branche, et des compteurs anonymes sortent de la page."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Odito",
+      "item": "https://odito.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://blog.odito.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Analyser une DSN",
+      "item": "https://blog.odito.fr/controle-dsn-mutuelle-prevoyance/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="container">
+    <a href="https://blog.odito.fr/" class="logo">Odito<span class="dot">.</span><small>Blog</small></a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="crumb"><a href="https://odito.fr/">Odito</a> · <a href="https://blog.odito.fr/">Blog</a> · Conformité</div>
+  <article>
+    <h1>Analyser une DSN : contrôler la mutuelle et la prévoyance</h1>
+    <div class="meta"><span class="cat">Conformité</span><span>3 novembre 2026</span><span>7 min de lecture</span></div>
+
+    <p class="lead">La DSN déclare chaque mois les contrats de mutuelle et de prévoyance d'une entreprise, les salariés qui y sont affiliés et les cotisations versées. Un gestionnaire de paie ou un expert-comptable peut donc y repérer les écarts les plus fréquents sans demander une seule pièce au client. Voici où lire la protection sociale dans le fichier, les contrôles qui en sortent, et la limite à ne pas franchir : la DSN montre ce qui est déclaré, pas ce qui est signé.</p>
+
+    <h2>Où la protection sociale se lit dans la DSN</h2>
+    <p>Six blocs suffisent pour reconstituer le régime d'un client, salarié par salarié.</p>
+    <table class="chiffres">
+      <thead><tr><th>Bloc</th><th>Ce qu'on y lit</th></tr></thead>
+      <tbody>
+        <tr><td>S21.G00.15 · Adhésion prévoyance</td><td>Les contrats santé et prévoyance souscrits, avec l'organisme et la référence du contrat</td></tr>
+        <tr><td>S21.G00.70 · Affiliation prévoyance</td><td>Chaque salarié rattaché à un contrat, avec son option</td></tr>
+        <tr><td>S21.G00.78 et 79 · Base assujettie</td><td>L'assiette sur laquelle le salarié cotise, dont la tranche 1</td></tr>
+        <tr><td>S21.G00.81 · Cotisation individuelle</td><td>Le montant et le taux de chaque cotisation</td></tr>
+        <tr><td>S21.G00.54 · Autre élément de revenu brut</td><td>La part patronale santé et prévoyance, quand le logiciel de paie la déclare</td></tr>
+        <tr><td>S21.G00.40 · Contrat de travail</td><td>Le statut catégoriel, donc qui est cadre et qui ne l'est pas</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Les contrôles qui ressortent d'une seule DSN</h2>
+    <p>En croisant ces blocs, on obtient une série de points d'attention qui couvrent l'essentiel des écarts constatés en audit.</p>
+    <h3>Des salariés sans mutuelle</h3>
+    <p>Un groupe de salariés, ou une partie d'un groupe, n'a aucune ligne de cotisation santé sur le mois. Ce peut être une dispense régulière ou une entrée en cours de mois. Ce peut aussi être un oubli d'affiliation, et dans ce cas le caractère collectif du régime est en jeu.</p>
+    <h3>Des taux différents dans une même catégorie</h3>
+    <p>Deux cadres, ou deux non-cadres, cotisent en prévoyance à des taux différents sur la même tranche, ou relèvent d'options différentes sur le même contrat. Un régime collectif traite de la même façon tous les salariés d'une même catégorie : une différence doit s'expliquer.</p>
+    <h3>Des cadres sous 1,50 % de la tranche 1</h3>
+    <p>L'accord national interprofessionnel du 17 novembre 2017 impose pour les cadres une cotisation patronale de 1,50 % de la tranche 1, affectée par priorité au décès. La DSN donne l'assiette et les cotisations : le contrôle est direct. Attention, la part patronale santé des cadres peut compter dans ces 1,50 %, à condition que plus de 0,75 % aille à la couverture décès. La DSN ne dit pas cette ventilation : c'est la pièce à demander.</p>
+    <span class="ref">ANI du 17 novembre 2017 · Cass. soc., 30 mars 2022, n° 20-15.022</span>
+    <h3>Une part patronale incohérente</h3>
+    <p>Quand le logiciel de paie déclare la part patronale, on vérifie qu'elle ne dépasse pas la cotisation totale, que l'employeur finance au moins la moitié de la couverture santé, et qu'elle respecte le minimum fixé par la branche. Si elle n'est pas déclarée du tout, le montant net social du salarié est à vérifier lui aussi.</p>
+    <span class="ref">Art. L. 911-7 CSS</span>
+    <h3>Des contrats sans personne, un dirigeant dans le régime</h3>
+    <p>Un contrat déclaré auquel aucun salarié n'est affilié signale souvent une résiliation que la déclaration n'a pas suivie. Un mandataire social qui cotise au régime des salariés pose une autre question : relève-t-il bien du champ du contrat et de la DUE ?</p>
+    <h3>Des taux sous ceux de la branche</h3>
+    <p>Avec le numéro de convention collective, on compare la part patronale et les taux de prévoyance déclarés aux minimums de la branche. Un contrat d'entreprise peut faire mieux, jamais moins.</p>
+
+    <div class="cta-box">
+      <h3>Faire ces contrôles sur la DSN d'un client</h3>
+      <p>Déposez la DSN mensuelle : la page lit les blocs ci-dessus et liste les points d'attention, avec pour chacun la pièce qui tranche. Gratuit, sans inscription. Le fichier est lu dans votre navigateur et n'est envoyé à aucun serveur.</p>
+      <a href="https://odito.fr/lecture-dsn/?utm_source=blog&amp;utm_medium=contenu&amp;utm_campaign=dsn-article" class="btn btn-accent">Lire une DSN</a>
+    </div>
+
+    <h2>Ce que la DSN ne dit pas</h2>
+    <p>La DSN montre ce que la paie déclare. Elle ne montre ni le contrat signé, ni la DUE, ni les justificatifs. Un point relevé dans la DSN est donc une question, pas un constat :</p>
+    <ul>
+      <li>un salarié sans mutuelle peut être dispensé : la pièce qui tranche est sa demande écrite et son justificatif ;</li>
+      <li>un cadre sous 1,50 % peut être couvert par la part santé : la pièce qui tranche est la ventilation du contrat par garantie ;</li>
+      <li>un taux conforme ne dit rien des garanties : la pièce qui tranche est le contrat ou sa notice ;</li>
+      <li>un régime bien déclaré peut reposer sur une DUE absente ou périmée : la pièce qui tranche est la DUE et la preuve de sa remise.</li>
+    </ul>
+    <p class="note">Les outils de contrôle de la norme, comme DSN-Val, vérifient que le fichier est bien formé avant l'envoi. Ils ne disent pas si le régime de protection sociale est conforme : ce n'est pas leur objet.</p>
+
+    <h2>De la DSN à l'audit</h2>
+    <p>Pour un cabinet, la DSN sert de tri : elle désigne les clients dont le régime mérite un regard, sans alourdir la mission. L'audit prend ensuite le relais sur les pièces : contrats, DUE, convention collective, contrat par contrat. Chez Odito, il est livré sous 48 heures ouvrées, pour 150 € HT par audit.</p>
+
+    <div class="cta-box">
+      <h3>Faire auditer un régime</h3>
+      <p>Audit santé et prévoyance, contrat par contrat, avec les annexes de la convention collective. Odito ne vend pas de contrat d'assurance.</p>
+      <a href="https://bookings.cloud.microsoft/book/PrsentationOdito@vasa.fr/s/tnc7fBn-lEejd9rtVTkVsA2?ismsaljsauthenabled" target="_blank" rel="noopener" class="btn btn-accent">Réserver une démo</a>
+    </div>
+
+    <div class="faq">
+      <h2>Questions fréquentes</h2>
+      <h3>Peut-on contrôler la mutuelle d'entreprise à partir de la DSN ?</h3>
+      <p>En partie. La DSN montre les contrats déclarés, les salariés affiliés, les cotisations et, souvent, la part patronale. Elle permet de repérer des salariés sans mutuelle, des taux différents dans une même catégorie ou une part employeur insuffisante. Elle ne montre ni la DUE, ni les garanties, ni les justificatifs de dispense.</p>
+      <h3>Comment vérifier le 1,50 % des cadres dans la DSN ?</h3>
+      <p>En rapportant la cotisation prévoyance du cadre à son assiette sur la tranche 1, déclarées dans les blocs 78, 79 et 81. Si le total est sous 1,50 %, la part patronale santé peut compléter, à condition que plus de 0,75 % aille au décès : la ventilation du contrat le dit, pas la DSN.</p>
+      <h3>Où trouver la part patronale santé et prévoyance dans la DSN ?</h3>
+      <p>Dans le bloc S21.G00.54, Autre élément de revenu brut, quand le logiciel de paie la déclare. Si elle est absente alors que des cotisations sont déclarées, le paramétrage de la paie est à vérifier.</p>
+      <h3>DSN-Val suffit-il à contrôler la protection sociale ?</h3>
+      <p>Non. DSN-Val contrôle que le fichier respecte la norme avant l'envoi. Il ne vérifie pas que le régime respecte la convention collective, l'obligation des cadres ou le financement minimum.</p>
+      <h3>Le fichier DSN est-il envoyé à Odito quand on utilise la lecture DSN ?</h3>
+      <p>Non. Le fichier est lu dans votre navigateur et n'est envoyé à aucun serveur. Seuls le numéro de convention collective, pour lire les minimums de branche, et des compteurs anonymes sortent de la page.</p>
+    </div>
+
+    <div class="further">
+      <h3>Pour aller plus loin</h3>
+      <ul>
+        <li><a href="https://blog.odito.fr/audit-conformite-ccn-sante-prevoyance/">Risque de non-conformité CCN : l'audit santé et prévoyance</a></li>
+        <li><a href="https://blog.odito.fr/expert-comptable-contrats-collectifs-sante-prevoyance/">Contrats collectifs santé et prévoyance : le rôle de l'expert-comptable</a></li>
+        <li><a href="https://blog.odito.fr/dispenses-adhesion-portabilite/">Dispenses d'adhésion et portabilité</a></li>
+        <li><a href="https://blog.odito.fr/due-decision-unilaterale-employeur/">DUE santé et prévoyance : contenu, remise et dénonciation</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <span>© 2026 Actisolutions SAS</span>
+    <span><a href="https://odito.fr/legal/">Mentions légales</a> · <a href="https://odito.fr/policy/">Politique de données</a></span>
+  </div>
+</footer>
+<script src="https://odito.fr/odito-tracking.js" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "68123304f77e47b1869fb3815eb2cde7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
